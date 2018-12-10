@@ -6,7 +6,7 @@ from  src.app import Application
 def main():
     
     r = Application()
-
+    r.run() 
 
 
 
