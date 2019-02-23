@@ -1,33 +1,31 @@
-# TensorFlow and tf.keras
 import tensorflow as tf
 from tensorflow import keras
 
-
 import numpy as np
 import matplotlib.pyplot as plt
-import cv2
-from src.network import DeepNeuralNetwork  
+
+from src.network import DeepNeuralNetwork
+from src.process import ProcessImage
 
 
-class Application:
+class Application (object):
+
+    def __init__(self, args):
+        self.args = args
 
     def loadConfig(self):
+
         with open('data/config.json') as data_file:
             data = json.load(data_file)
 
         return data
 
     def run(self):
-         
-        net = DeepNeuralNetwork()         
-        
         print("@--------------------| Inciando Leitura dataset |--------------------------@")
-        
-        img = cv2.imread('data/test.png', 0)  
-        
-        print(img)
-        print(net)
+        ProcessImage.loadDataset(self.args['dataset'])
 
         print("@--------------------|      Inciando Keras             |--------------------------@")
-        
+
+        net = DeepNeuralNetwork([], [])
+
         print("@--------------------| Inciando Deep Deural Networking |------------------------@")

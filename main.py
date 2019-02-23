@@ -12,7 +12,7 @@ def main():
 
     args = vars(ar.parse_args())
 
-    app = Application()
+    app = Application(args)
     app.run()
 
 
