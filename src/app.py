@@ -2,10 +2,11 @@
 import tensorflow as tf
 from tensorflow import keras
 
-# Helper libraries
+
 import numpy as np
 import matplotlib.pyplot as plt
-
+import cv2
+from src.network import DeepNeuralNetwork  
 
 
 class Application:
@@ -17,10 +18,16 @@ class Application:
         return data
 
     def run(self):
-        
+         
+        net = DeepNeuralNetwork()         
         
         print("@--------------------| Inciando Leitura dataset |--------------------------@")
+        
+        img = cv2.imread('data/test.png', 0)  
+        
+        print(img)
+        print(net)
 
-        print("@--------------------| Inciando Keras |--------------------------@")
-        print(tf.__version__)
+        print("@--------------------|      Inciando Keras             |--------------------------@")
+        
         print("@--------------------| Inciando Deep Deural Networking |------------------------@")

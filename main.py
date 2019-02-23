@@ -1,15 +1,19 @@
 import sys
-
+import argparse
 from src.app import Application
-from pyspark.ml.classification import LogisticRegression
-
-from pyspark import SparkConf, SparkContext
-from pyspark.ml.regression import LinearRegression
 
 
 def main():
-    r = Application()
-    r.run()
+
+    ar = argparse.ArgumentParser()    
+     
+    ar.add_argument("-d", "--dataset", required=True,
+	help="path to input dataset of images") 
+
+    args = vars(ar.parse_args())
+
+    app = Application()
+    app.run()
 
 
 if __name__ == '__main__':
